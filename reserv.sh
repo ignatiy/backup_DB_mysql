@@ -19,7 +19,7 @@ mysqldump -u$DB_USER -p$DB_PASS asterisk | gzip > `date +$PATH_TO_DB/asterisk/as
 echo "резервируем базу ASTERISK_CDR"
 mysqldump -u$DB_USER -p$DB_PASS asteriskcdrdb | gzip > `date +$PATH_TO_DB/asterisk/asteriskcdrdb.sql.%Y-%m-%d.%H%M%S.gz` 
 echo "удаление мусора"
-#=== Удаляем старый мусор ==================
+#=== Удаляем старый мусор нахуй! ==================
 find $PATH_TO_DB/crm/ -atime +$DB_ALD -delete
 
 find $PATH_TO_DB/asterisk/ -atime +$DB_ALD -delete
@@ -34,7 +34,7 @@ echo "Архивирование исходников FREEPBX"
 tar -cJf `date +$PATH_TO_SOURCE/freePBX.%Y-%m-%d.%H%M%S.tar` /home/freePBX
 echo "Архивирование настроек ASTERISK"
 tar -cJf `date +$PATH_TO_SOURCE/asterisk_etc.%Y-%m-%d.%H%M%S.tar` /etc/asterisk
-#=== Удаляем старый мусор ==================
+#=== Удаляем старый мусор нахуй!==================
 echo "Удаляем старый мусор"
 find $PATH_TO_SOURCE/ -atime +$SOURCE_ALD -delete
 
